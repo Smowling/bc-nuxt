@@ -1,6 +1,7 @@
 <template>
     <div>
         <p>index!</p>
+        <button class="btn">test</button>
     </div>
 
 </template>

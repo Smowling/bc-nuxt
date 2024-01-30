@@ -5,7 +5,7 @@
             <ul class="flex gap-4">
                 <li><NuxtLink to="/">HOME</NuxtLink></li>
                 <li><NuxtLink to="/about">ABOUT</NuxtLink></li>
-                <li><NuxtLink to="/bikeshop/123">123</NuxtLink></li>
+                <li><NuxtLink to="/bikeshop/123" class="btn">123</NuxtLink></li>
             </ul>
         </nav>
     </header>
@@ -13,3 +13,9 @@
         <slot />
     </div>
 </template>
+
+<style>
+body {
+    background-color: #fefefe;
+}
+</style>
