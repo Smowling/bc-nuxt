@@ -21,6 +21,20 @@
         if (!state.email) errors.push({ path: 'email', message: 'Required' })
         return errors
     }
+
+    async function signInWithGoogleOAuth() {
+        const { data, error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+        })
+        if (error)
+        {
+            console.log(error);
+        }
+        else
+        {
+            console.log(data);
+        }
+    }
 </script>
 <template>
     
@@ -30,5 +44,7 @@
     </UFormGroup>
     <UButton type="submit" label="Sigh in with email" @click="signInWithOtp" />
   </UForm>
+  <p>or</p>
+  <UButton class="space-y-4" label="Sign in with Google" @click="signInWithGoogleOAuth" />
 
 </template>
