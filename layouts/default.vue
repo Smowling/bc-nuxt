@@ -22,11 +22,7 @@
     </div>
 </template>
 
-<style>
-body {
-    background-color: #fefefe;
-}
-</style>
+
 
 <script setup>
 // dark-light mode
