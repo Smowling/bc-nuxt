@@ -6,4 +6,12 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'dark'
   },
+  routes: [
+        {
+          name: 'bikeshop',
+          path: '/bikeshop/:bikeshop',
+          component: '~/pages/bikeshop/_bikeshop.vue',
+        },
+      ],
 })
+
