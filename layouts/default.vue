@@ -1,10 +1,10 @@
 <template>
     <header class="shadow-sm bg-white">
         <nav class="container mx-auto p-4 flex justify-between">
-            <NuxtLink to="/" class="font-bold">Bikecheck!</NuxtLink>
+            <ULink to="/" class="font-bold">Bikecheck!</ULink>
             <ul class="flex gap-4">
-                <li><NuxtLink to="/">HOME</NuxtLink></li>
-                <li><NuxtLink to="/about">ABOUT</NuxtLink></li>
+                <li><ULink to="/">HOME</ULink></li>
+                <li><ULink to="/about">ABOUT</ULink></li>
                 <li v-show="user"><UButton @click="signOut">Logout</UButton></li>
                 <li v-show="!user"><UButton to="/login">Login</UButton></li>
                 <UButton
@@ -14,7 +14,7 @@
                     aria-label="Theme"
                     @click="isDark = !isDark"
                     />
-            </ul>
+              </ul>
         </nav>
     </header>
     <div class="container mx-auto p-4">

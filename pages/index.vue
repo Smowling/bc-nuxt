@@ -1,13 +1,13 @@
 <template>
     <div class="grid grid-cols-4 gap-4">
-        <UCard v-for="(bikeshop, index) in bikeshops" :key="index">
-            <ULink :to="{ name: 'bikeshop', params: { bikeshop: bikeshop.name } }">
+        <ULink v-for="(bikeshop, index) in bikeshops" :key="index" :to="'/bikeshop/' + bikeshop.name">
+            <UCard>
                 <p>{{ bikeshop.description }}</p>
-            <template #footer>
-                <p>{{ bikeshop.name }}</p>
-            </template>
+                <template #footer>
+                    <p>{{ bikeshop.name }}</p>
+                </template>
+            </UCard>
         </ULink>
-        </UCard>
     </div>
 </template>
 
