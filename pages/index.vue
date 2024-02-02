@@ -1,6 +1,6 @@
 <template>
     <div class="grid grid-cols-4 gap-4">
-        <ULink v-for="(bikeshop, index) in bikeshops" :key="index" :to="'/bikeshop/' + bikeshop.name">
+        <ULink v-for="(bikeshop, index) in bikeshops" :key="index" :to="'/bikeshop/' + bikeshop.url">
             <UCard>
                 <p>{{ bikeshop.description }}</p>
                 <template #footer>
