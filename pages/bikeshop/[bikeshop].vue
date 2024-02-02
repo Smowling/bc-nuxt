@@ -2,7 +2,8 @@
     <div>
         <p>{{ bikeshop }}</p>
         <p>{{ details.name }}</p>
-        <p>{{ details.details }}</p>
+        <p>{{ details.description }}</p>
+        <p>{{ details.email }}</p>
     </div>
 </template>
 
@@ -12,14 +13,16 @@
 
 const { bikeshop } = useRoute().params
 const supabase = useSupabaseClient()
-const details = ref()
+const details = ref('')
 async function getBikeshopDetails() {
-  const { data } = await supabase.from('bikeshops').select().filter("url", "eq", bikeshop)
-  details.value = data
+  const { data } = await supabase.from('bikeshops').select().eq("url", bikeshop).single()
+  if (data) {
+    details.value = data
+  }
 }
 
 onMounted(() => {
-    getBikeshopDetails()
+    getBikeshopDetails();
 })
 
 </script>
