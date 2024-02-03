@@ -5,14 +5,15 @@
         <p>{{ bikeshop.description }}</p>
         <p>{{ bikeshop.email }}</p>
     </UContainer>
-    <UCard v-for="(service, index) in services" :key="index">
+    <!-- <UCard v-for="(bs, index) in bikeshop" :key="index">
       <template #header>
-        <p>{{ service.service }}</p>
+        <h2>{{ bs.service }}</h2>
+        <p>{{ bs.details }}</p>
       </template>
       <template #footer>
-        <p>{{ service.price }}</p>
+        <p>{{ bs.price }}</p>
       </template>
-    </UCard>
+    </UCard> -->
 </template>
 
 
@@ -22,26 +23,19 @@
 const { bikeshopurl } = useRoute().params
 const supabase = useSupabaseClient()
 const bikeshop = ref('')
-const services = ref('')
-
-async function getBikeshopServices(bikeshopId){
-  const { s } = await supabase.from('services').select.eq("bikeshop", bikeshopId)
-  if (s) {
-    services.value = s
-  }
-}
 
 async function getBikeshop() {
-  const { data } = await supabase.from('bikeshops').select().eq("url", bikeshopurl).single()
-  if (data) {
+  const { data, error } = await supabase.from('bikeshop_and_services').select().eq("url", bikeshopurl).single()
+  if (error) { console.log(error.message) }
+  else {
     bikeshop.value = data
+    console.log(bikeshop)
   }
 }
 
 
 onMounted(() => {
     getBikeshop();
-    getBikeshopServices(bikeshop.id)
 })
 
 </script>
