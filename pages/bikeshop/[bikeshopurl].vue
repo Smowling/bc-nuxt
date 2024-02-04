@@ -1,11 +1,11 @@
 <template>
     <UContainer>
         <p>{{ bikeshopurl }}</p>
-        <p>{{ bikeshop.name }}</p>
-        <p>{{ bikeshop.description }}</p>
-        <p>{{ bikeshop.email }}</p>
+        <p>{{ bikeshop.value[0].bikeshop }}</p>
+        <p>{{ bikeshop.value[0].description }}</p>
+        <p>{{ bikeshop.value[0].email }}</p>
     </UContainer>
-    <!-- <UCard v-for="(bs, index) in bikeshop" :key="index">
+    <UCard v-for="(bs, index) in bikeshop" :key="index">
       <template #header>
         <h2>{{ bs.service }}</h2>
         <p>{{ bs.details }}</p>
@@ -13,7 +13,7 @@
       <template #footer>
         <p>{{ bs.price }}</p>
       </template>
-    </UCard> -->
+    </UCard>
 </template>
 
 
@@ -25,11 +25,10 @@ const supabase = useSupabaseClient()
 const bikeshop = ref('')
 
 async function getBikeshop() {
-  const { data, error } = await supabase.from('bikeshop_and_services').select().eq("url", bikeshopurl).single()
+  const { data, error } = await supabase.from('bikeshop_and_services').select().eq("url", bikeshopurl)
   if (error) { console.log(error.message) }
   else {
     bikeshop.value = data
-    console.log(bikeshop)
   }
 }
 
