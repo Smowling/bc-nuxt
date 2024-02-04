@@ -1,9 +1,12 @@
 <template>
+    <Suspense>
+      <template #default>
+        <div>
     <UContainer>
         <p>{{ bikeshopurl }}</p>
-        <p>{{ bikeshop.value[0].bikeshop }}</p>
-        <p>{{ bikeshop.value[0].description }}</p>
-        <p>{{ bikeshop.value[0].email }}</p>
+        <!-- <p>{{ bikeshop[0].bikeshop }}</p>
+        <p>{{ bikeshop[0].description }}</p>
+        <p>{{ bikeshop[0].email }}</p> -->
     </UContainer>
     <UCard v-for="(bs, index) in bikeshop" :key="index">
       <template #header>
@@ -14,6 +17,13 @@
         <p>{{ bs.price }}</p>
       </template>
     </UCard>
+  </div>
+  </template>
+
+    <template #fallback>
+    <div>Loading ...</div>
+  </template>
+  </Suspense>
 </template>
 
 
