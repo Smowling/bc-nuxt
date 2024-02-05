@@ -1,5 +1,5 @@
 <template>
-    <header class="shadow-sm bg-white">
+    <header class="shadow-sm">
         <nav class="container mx-auto p-4 flex justify-between">
             <ULink to="/" class="font-bold">Bikecheck!</ULink>
             <ul class="flex gap-4">

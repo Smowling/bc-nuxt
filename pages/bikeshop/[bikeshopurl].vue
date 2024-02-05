@@ -8,13 +8,13 @@
         <p>{{ bikeshop[0].description }}</p>
         <p>{{ bikeshop[0].email }}</p> -->
     </UContainer>
-    <UCard v-for="(bs, index) in bikeshop" :key="index">
+    <UCard v-for="(bs, index) in bikeshop" :key="index" class="shadow-sm">
       <template #header>
         <h2>{{ bs.service }}</h2>
-        <p>{{ bs.details }}</p>
       </template>
+        <p>{{ bs.details }}</p>
       <template #footer>
-        <p>{{ bs.price }}</p>
+        <p><UButton>{{ bs.price }}</UButton></p>
       </template>
     </UCard>
   </div>
