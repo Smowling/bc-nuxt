@@ -5,6 +5,12 @@ export default defineNuxtConfig({
   "supabase": { redirect: false },
   "colorMode": {
     "preference": 'dark'
-  }
+  },
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
 })
 
