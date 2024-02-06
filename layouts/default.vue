@@ -1,7 +1,8 @@
 <template>
     <header class="shadow-sm">
-        <nav class="container mx-auto p-4 flex justify-between">
-            <ULink to="/" class="font-bold">Bikecheck!</ULink>
+      <UHorizontalNavigation :links="links" class="border-b border-gray-200 dark:border-gray-800" />
+      <nav class="container mx-auto p-4 flex justify-between">
+        <ULink to="/" class="font-bold">Bikecheck!</ULink>
             <ul class="flex gap-4">
                 <li><ULink to="/">HOME</ULink></li>
                 <li><ULink to="/about">ABOUT</ULink></li>
@@ -20,11 +21,31 @@
     <div class="container mx-auto p-4">
         <slot />
     </div>
+    <footer>
+      <p>All rights reserved.</p>
+    </footer>
 </template>
 
 
 
 <script setup>
+// horizontal nav
+const links = [
+  {
+  label: 'Home',
+  to: '/'
+},
+{
+  label: 'About',
+  to: '/about'
+},
+{
+  label: 'Settings',
+  to: '/settings'
+}
+
+]
+
 // dark-light mode
 const colorMode = useColorMode()
 const isDark = computed({
