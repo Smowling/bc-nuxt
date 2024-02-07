@@ -9,7 +9,7 @@
                     <p> {{ bike.year }}</p>
                     <UButton>History</UButton>
                     <UButton>Edit</UButton>
-                    <UButton>Delete</UButton>
+                    <UButton @click="deleteBike(bike.id)">Delete</UButton>
                 </UCard>
             </li>
         </ul>
@@ -26,6 +26,10 @@ const settings = ref('')
 onMounted(() => {
     getUserSettings();
 })
+
+async function deleteBike(bike_id){
+    const { error } = await supabase.from("bikes").delete().eq("id", bike_id)
+}
 
 async function getUserSettings() {
   const { data, error } = await supabase.from('bikes').select().eq("user_id", user.value.id)
