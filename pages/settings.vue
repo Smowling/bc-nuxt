@@ -3,9 +3,14 @@
         <p>Bikes</p>
         <ul>
             <li v-for="(bike, index) in settings" :key="index">
-                <p> {{ bike.brand }}</p>
-                <p> {{ bike.model }}</p>
-                <p> {{ bike.year }}</p>
+                <UCard>
+                    <p> {{ bike.brand }}</p>
+                    <p> {{ bike.model }}</p>
+                    <p> {{ bike.year }}</p>
+                    <UButton>History</UButton>
+                    <UButton>Edit</UButton>
+                    <UButton>Delete</UButton>
+                </UCard>
             </li>
         </ul>
     </div>
@@ -26,7 +31,7 @@ async function getUserSettings() {
   const { data, error } = await supabase.from('bikes').select().eq("user_id", user.value.id)
   if (error) { console.log(error.message) }
   else {
-    return data
+    settings.value = data
   }
 }
 
