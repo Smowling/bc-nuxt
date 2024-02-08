@@ -14,17 +14,17 @@
 <script setup>
 const supabase = useSupabaseClient()
 
-    const bikeshops = ref();
+const bikeshops = ref();
 
-    onMounted(()=> {
+onMounted(() => {
     getBikeshops();
 
-    })
+})
 
-  async function getBikeshops() {
+async function getBikeshops() {
     const { data: dbData, error } = await supabase.from('bikeshops').select()
     if (error) console.log("Error", error);
     else bikeshops.value = dbData;
-  }
+}
 
 </script>

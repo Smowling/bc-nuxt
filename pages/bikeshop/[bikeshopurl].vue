@@ -1,28 +1,28 @@
 <template>
-    <Suspense>
-      <template #default>
-        <div>
-    <UContainer>
-        <p>{{ bikeshopurl }}</p>
-        <!-- <p>{{ bikeshop[0].bikeshop }}</p>
+  <Suspense>
+    <template #default>
+      <div>
+        <UContainer>
+          <p>{{ bikeshopurl }}</p>
+          <!-- <p>{{ bikeshop[0].bikeshop }}</p>
         <p>{{ bikeshop[0].description }}</p>
         <p>{{ bikeshop[0].email }}</p> -->
-    </UContainer>
-    <UCard v-for="(bs, index) in bikeshop" :key="index">
-      <template #header>
-        <h2>{{ bs.service }}</h2>
-        <p>{{ bs.details }}</p>
-      </template>
-      <template #footer>
-        <p>{{ bs.price }}</p>
-      </template>
-    </UCard>
-  </div>
-  </template>
+        </UContainer>
+        <UCard v-for="(bs, index) in bikeshop" :key="index">
+          <template #header>
+            <h2>{{ bs.service }}</h2>
+            <p>{{ bs.details }}</p>
+          </template>
+          <template #footer>
+            <p>{{ bs.price }}</p>
+          </template>
+        </UCard>
+      </div>
+    </template>
 
     <template #fallback>
-    <div>Loading ...</div>
-  </template>
+      <div>Loading ...</div>
+    </template>
   </Suspense>
 </template>
 
@@ -44,7 +44,7 @@ async function getBikeshop() {
 
 
 onMounted(() => {
-    getBikeshop();
+  getBikeshop();
 })
 
 </script>
