@@ -12,14 +12,8 @@
 
         <ul>
             <li v-for="(bike, index) in settings" :key="index">
-                <UCard>
-                    <p> {{ bike.brand }}</p>
-                    <p> {{ bike.model }}</p>
-                    <p> {{ bike.year }}</p>
-                    <UButton label="History" />
-                    <UButton label="Edit" />
-                    <UButton label="Delete" icon="i-heroicons-minus-solid" @click="deleteBike(bike.id)" />
-                </UCard>
+                <BikeCard :bike="bike" />
+
             </li>
         </ul>
     </div>
