@@ -16,9 +16,9 @@
                     <p> {{ bike.brand }}</p>
                     <p> {{ bike.model }}</p>
                     <p> {{ bike.year }}</p>
-                    <UButton>History</UButton>
-                    <UButton>Edit</UButton>
-                    <UButton @click="deleteBike(bike.id)">Delete</UButton>
+                    <UButton label="History" />
+                    <UButton label="Edit" />
+                    <UButton label="Delete" icon="i-heroicons-minus-solid" @click="deleteBike(bike.id)" />
                 </UCard>
             </li>
         </ul>
@@ -58,6 +58,16 @@ async function addBike() {
     const { error } = await supabase.from("bikes").insert(bikeForm.value)
     if (error) {
         console.log(error.message)
+    }
+    else {
+        add_bike.value = !add_bike;
+        bikeForm.value = {
+            brand: "",
+            model: "",
+            year: "",
+            user_id: user.value.id,
+        }
+        getUserSettings()
     }
 }
 
