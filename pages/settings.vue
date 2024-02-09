@@ -13,7 +13,9 @@
         <ul>
             <li v-for="(bike, index) in settings" :key="index">
                 <BikeCard :bike="bike" />
-
+                <UButton label="History" />
+                <UButton label="Edit" />
+                <UButton label="Delete" icon="i-heroicons-minus-solid" @click="deleteBike(bike.id)" />
             </li>
         </ul>
     </div>
