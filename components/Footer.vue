@@ -3,9 +3,9 @@
 </script>
 
 <template>
-    <UFooter>
-        <template #left>
-            Copyright ©
+    <footer>
+        <template>
+            Copyright © {{ new Date().getFullYear() }}
         </template>
-    </UFooter>
+    </footer>
 </template>
