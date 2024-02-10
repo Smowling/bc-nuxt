@@ -39,13 +39,14 @@ onMounted(() => {
     getUserSettings();
 })
 
+onUpdated(() => {
+    getUserSettings();
+})
+
 async function deleteBike(bike_id) {
     const { error } = await supabase.from("bikes").delete().eq("id", bike_id)
     if (error) {
         console.log(error.message)
-    }
-    else {
-        getUserSettings()
     }
 }
 
@@ -63,7 +64,6 @@ async function addBike() {
             year: "",
             user_id: user.value.id,
         }
-        getUserSettings()
     }
 }
 

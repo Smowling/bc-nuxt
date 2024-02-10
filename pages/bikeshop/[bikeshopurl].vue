@@ -47,5 +47,9 @@ onMounted(() => {
   getBikeshop();
 })
 
+onUpdated(() => {
+  getBikeshop();
+})
+
 </script>
 
