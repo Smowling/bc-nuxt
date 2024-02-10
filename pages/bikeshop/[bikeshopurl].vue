@@ -43,7 +43,7 @@ async function getBikeshop() {
 }
 
 
-onMounted(() => {
+onBeforeMount(() => {
   getBikeshop();
 })
 

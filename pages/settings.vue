@@ -35,7 +35,7 @@ const bikeForm = ref({
     user_id: user.value.id,
 })
 
-onMounted(() => {
+onBeforeMount(() => {
     getUserSettings();
 })
 
