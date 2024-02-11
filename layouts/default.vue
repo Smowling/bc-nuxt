@@ -10,10 +10,10 @@
         <li>
           <ULink to="/about">ABOUT</ULink>
         </li>
-        <li v-show="user">
+        <li v-if="user">
           <UButton @click="signOut">Logout</UButton>
         </li>
-        <li v-show="!user">
+        <li v-if="!user">
           <UButton to="/login">Login</UButton>
         </li>
         <UButton :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'" color="gray" variant="ghost"
