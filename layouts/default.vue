@@ -23,7 +23,7 @@
   </header>
   <div class="container mx-auto p-4">
     <slot />
-
+    <FooterComp />
   </div>
 </template>
 

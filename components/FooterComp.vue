@@ -3,9 +3,7 @@
 </script>
 
 <template>
-    <footer>
-        <template>
-            Copyright © {{ new Date().getFullYear() }}
-        </template>
-    </footer>
+    <div>
+        Copyright © {{ new Date().getFullYear() }}
+    </div>
 </template>
