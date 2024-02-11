@@ -14,7 +14,6 @@
             <li v-for="(bike, index) in settings" :key="index">
                 <BikeCard :bike="bike" />
                 <UButton label="History" />
-                <UButton label="Edit" />
                 <UButton label="Delete" icon="i-heroicons-minus-solid" @click="deleteBike(bike.id)" />
             </li>
         </ul>
@@ -35,13 +34,23 @@ const bikeForm = ref({
     user_id: user.value.id,
 })
 
-onBeforeMount(() => {
+onMounted(() => {
     getUserSettings();
 })
 
-onUpdated(() => {
-    getUserSettings();
-})
+// onUpdated(() => {
+//     getUserSettings();
+// })
+
+// Reset form function
+function resetForm() {
+    bikeForm.value = {
+        brand: "",
+        model: "",
+        year: "",
+        user_id: user.value.id,
+    }
+}
 
 async function deleteBike(bike_id) {
     const { error } = await supabase.from("bikes").delete().eq("id", bike_id)
@@ -57,13 +66,8 @@ async function addBike() {
         console.log(error.message)
     }
     else {
-        add_bike.value = !add_bike;
-        bikeForm.value = {
-            brand: "",
-            model: "",
-            year: "",
-            user_id: user.value.id,
-        }
+        add_bike.value = !add_bike
+        resetForm()
     }
 }
 

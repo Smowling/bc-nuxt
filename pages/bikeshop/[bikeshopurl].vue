@@ -43,13 +43,13 @@ async function getBikeshop() {
 }
 
 
-onBeforeMount(() => {
+onMounted(() => {
   getBikeshop();
 })
 
-onUpdated(() => {
-  getBikeshop();
-})
+// onUpdated(() => {
+//   getBikeshop();
+// })
 
 </script>
 
