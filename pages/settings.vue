@@ -34,11 +34,6 @@ const bikeForm = ref({
     user_id: user.value.id,
 })
 
-definePageMeta({
-    middleware: 'auth',
-});
-
-
 onMounted(() => {
     getUserSettings();
 })
