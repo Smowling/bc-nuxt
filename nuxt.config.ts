@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   "devtools": { enabled: true },
   "supabase": { redirect: false },
   "colorMode": {
-    "preference": 'dark'
+    "preference": 'light'
   },
   components: [
     {

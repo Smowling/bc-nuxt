@@ -58,6 +58,12 @@ const isDark = computed({
   }
 })
 
+
+definePageMeta({
+  middleware: 'auth',
+})
+
+
 // user?
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
@@ -67,6 +73,7 @@ async function signOut() {
     const { error } = await supabase.auth.signOut()
     if (error) throw error
     user.value = null
+    return navigateTo('/')
   } catch (error) {
     alert(error.message)
   }
