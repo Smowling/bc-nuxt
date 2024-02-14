@@ -8,6 +8,18 @@
                 </template>
             </UCard>
         </ULink>
+
+        <UCard v-for="index in 40" :key="index">
+            <template #header>
+                <Placeholder class="h-8" />
+            </template>
+
+            <Placeholder class="h-32" />
+
+            <template #footer>
+                <Placeholder class="h-8" />
+            </template>
+        </UCard>
     </div>
 </template>
 

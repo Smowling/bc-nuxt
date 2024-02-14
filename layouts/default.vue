@@ -3,6 +3,7 @@
     <UHorizontalNavigation :links="links" class="border-b border-gray-200 dark:border-gray-800" />
     <nav class="container mx-auto p-4 flex justify-between">
       <ULink to="/" class="font-bold">Bikecheck!</ULink>
+      <UInput v-model="search" color="white" variant="outline" placeholder="Search..." />
       <ul class="flex gap-4">
         <li>
           <ULink to="/">HOME</ULink>
@@ -46,6 +47,7 @@ const links = [
   }
 
 ]
+const search = ref('')
 
 // dark-light mode
 const colorMode = useColorMode()
@@ -58,10 +60,6 @@ const isDark = computed({
   }
 })
 
-
-definePageMeta({
-  middleware: 'auth',
-})
 
 
 // user?
