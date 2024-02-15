@@ -6,7 +6,8 @@
         <UContainer v-if="add_bike">
             <UInput v-model="bikeForm['brand']" placeholder="Brand" />
             <UInput v-model="bikeForm['model']" placeholder="Model" />
-            <UInput v-model="bikeForm['year']" placeholder="Year" />
+            <!-- <UInput v-model="" placeholder="Year" /> -->
+            <DatePicker v-model="bikeForm['year']" @close="close" />
             <UButton label="Add" @click="addBike()" />
         </UContainer>
 
