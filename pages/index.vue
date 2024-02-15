@@ -11,13 +11,10 @@
 
         <UCard v-for="index in 40" :key="index">
             <template #header>
-                <Placeholder class="h-8" />
+                <p>test case {{ index }}</p>
             </template>
-
-            <Placeholder class="h-32" />
-
             <template #footer>
-                <Placeholder class="h-8" />
+                <p>footer {{ index }}</p>
             </template>
         </UCard>
     </div>
