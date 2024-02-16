@@ -12,12 +12,12 @@
           <ULink to="/about">ABOUT</ULink>
         </li>
         <li v-if="user">
-          <UButton @click="signOut">Logout</UButton>
+          <Button @click="signOut">Logout</Button>
         </li>
         <li v-if="!user">
-          <UButton to="/login">Login</UButton>
+          <Button to="/login">Login</Button>
         </li>
-        <UButton :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'" color="gray" variant="ghost"
+        <Button :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'" color="gray" variant="ghost"
           aria-label="Theme" @click="isDark = !isDark" />
       </ul>
     </nav>
