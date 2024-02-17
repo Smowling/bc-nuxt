@@ -6,8 +6,20 @@
         <UContainer v-if="add_bike">
             <UInput v-model="bikeForm['brand']" placeholder="Brand" />
             <UInput v-model="bikeForm['model']" placeholder="Model" />
-            <!-- <UInput v-model="" placeholder="Year" /> -->
-            <DatePicker v-model="bikeForm['year']" @close="close" />
+            <Popover>
+                <PopoverTrigger as-child>
+                    <Button :variant="'outline'" :class="cn(
+                        'w-[280px] justify-start text-left font-normal',
+                        !date && 'text-muted-foreground',
+                    )">
+                        <CalendarIcon class="mr-2 h-4 w-4" />
+                        <span>{{ date ? format(date, "PPP") : "Pick a date" }}</span>
+                    </Button>
+                </PopoverTrigger>
+                <PopoverContent class="w-auto p-0">
+                    <Calendar v-model="date" />
+                </PopoverContent>
+            </Popover>
             <UButton label="Add" @click="addBike()" />
         </UContainer>
 
@@ -27,6 +39,7 @@ const user = useSupabaseUser()
 const supabase = useSupabaseClient()
 const settings = ref('')
 const add_bike = ref(false)
+const date = ref < Date > ('')
 
 const bikeForm = ref({
     brand: "",
