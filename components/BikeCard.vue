@@ -1,11 +1,16 @@
 <template>
     <div>
-        <UCard>
-            <p> {{ bike.brand }}</p>
-            <p> {{ bike.model }}</p>
-            <p> {{ bike.year }}</p>
-
-        </UCard>
+        <Card>
+            <CardHeader>
+                <CardTitle>{{ bike.brand }}</CardTitle>
+            </CardHeader>
+            <CardContent>
+                {{ bike.model }}
+            </CardContent>
+            <CardContent>
+                {{ bike.year }}
+            </CardContent>
+        </Card>
     </div>
 </template>
 
