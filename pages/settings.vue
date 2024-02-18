@@ -6,7 +6,7 @@
         <UContainer v-if="add_bike">
             <UInput v-model="bikeForm['brand']" placeholder="Brand" />
             <UInput v-model="bikeForm['model']" placeholder="Model" />
-            <Popover>
+            <!-- <Popover>
                 <PopoverTrigger as-child>
                     <Button :variant="'outline'" :class="cn(
                         'w-[280px] justify-start text-left font-normal',
@@ -19,7 +19,7 @@
                 <PopoverContent class="w-auto p-0">
                     <Calendar v-model="date" />
                 </PopoverContent>
-            </Popover>
+            </Popover> -->
             <UButton label="Add" @click="addBike()" />
         </UContainer>
 
