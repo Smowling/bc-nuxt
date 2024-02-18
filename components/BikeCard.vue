@@ -16,6 +16,9 @@
 
 <script setup>
 defineProps(["bike"])
+
+
+
 </script>
 
 <style scoped></style>
