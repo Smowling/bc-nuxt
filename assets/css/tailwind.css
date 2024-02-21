@@ -81,7 +81,7 @@
 @layer utilities {
   .text-primary-foreground {
     /* Define your custom styles here */
-    color: #3490dc;
+    color: hsl(200, 13%, 95%);
     /* Example color */
   }
 

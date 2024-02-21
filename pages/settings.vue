@@ -1,14 +1,6 @@
 <template>
     <div>
         <p>Bikes</p>
-        <!-- <UButton :label="add_bike ? 'Cancel' : 'Add'" @click="add_bike = !add_bike"
-            :icon="add_bike ? '' : 'i-heroicons-plus-solid'" />
-        <UContainer v-if="add_bike">
-            <UInput v-model="bikeForm['brand']" placeholder="Brand" />
-            <UInput v-model="bikeForm['model']" placeholder="Model" />
-
-            <UButton label="Add" @click="addBike()" />
-        </UContainer> -->
 
         <ul>
             <li v-for="(bike, index) in settings" :key="index">
@@ -18,10 +10,12 @@
             </li>
         </ul>
 
-
         <Popover>
             <PopoverTrigger as-child>
-                <Button :variant="'outline'">
+                <Button :variant="'outline'" :class="cn(
+                    'w-[280px] justify-start text-left font-normal',
+                    !date && 'text-muted-foreground',
+                )">
                     <CalendarIcon class="mr-2 h-4 w-4" />
                     <span>{{ date ? format(date, "PPP") : "Pick a date" }}</span>
                 </Button>
@@ -30,16 +24,30 @@
                 <Calendar v-model="date" />
             </PopoverContent>
         </Popover>
+
     </div>
 </template>
 
 
 <script setup>
+import { format } from 'date-fns'
+import { Calendar as CalendarIcon } from 'lucide-vue-next'
+
+import { ref } from 'vue'
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import { Calendar } from '@/components/ui/calendar'
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from '@/components/ui/popover'
+
+const date = ref < Date > ('')
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
 const settings = ref('')
 const add_bike = ref(false)
-const date = ref < Date > (Date.now())
 
 const bikeForm = ref({
     brand: "",
