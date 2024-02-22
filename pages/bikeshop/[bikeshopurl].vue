@@ -8,7 +8,7 @@
         <p>{{ bikeshop[0].description }}</p>
         <p>{{ bikeshop[0].email }}</p> -->
         </UContainer>
-        <UCard v-for="(bs, index) in bikeshop" :key="index">
+        <!-- <UCard v-for="(bs, index) in bikeshop" :key="index">
           <template #header>
             <h2>{{ bs.service }}</h2>
             <p>{{ bs.details }}</p>
@@ -16,7 +16,8 @@
           <template #footer>
             <p>{{ bs.price }}</p>
           </template>
-        </UCard>
+        </UCard> -->
+        <ServiceCard bikeshop="bikeshop" />
       </div>
     </template>
 

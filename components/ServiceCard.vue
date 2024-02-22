@@ -7,18 +7,19 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-props: ["bikeshop"]
-
+const props = withDefaults(defineProps<{
+  bikeshop?: any
+}>(), {})
 </script>
 
 <template>
   <Card v-for="(bs, index) in bikeshop" :key="index" class="shadow-sm">
     <CardHeader>
       <CardTitle>{{ bs.service }}</CardTitle>
-      <CardDescription>bs.details</CardDescription>
+      <CardDescription>{{ bs.details }}</CardDescription>
     </CardHeader>
     <CardContent>
-      bs.details
+      {{ bs.details }}
     </CardContent>
     <CardFooter>
       <Button>{{ bs.price }}</Button>
