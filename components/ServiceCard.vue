@@ -1,19 +1,27 @@
-<template>
-    <UCard v-for="(bs, index) in bikeshop" :key="index" class="shadow-sm">
-      <template #header>
-        <h2>{{ bs.service }}</h2>
-      </template>
-        <p>{{ bs.details }}</p>
-      <template #footer>
-        <p><UButton>{{ bs.price }}</UButton></p>
-      </template>
-    </UCard>
-</template>
+<script setup lang="ts">
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+props: ["bikeshop"]
 
-<script>
-    props: ["bikeshop"]
 </script>
 
-<style scoped>
-
-</style>
+<template>
+  <Card v-for="(bs, index) in bikeshop" :key="index" class="shadow-sm">
+    <CardHeader>
+      <CardTitle>{{ bs.service }}</CardTitle>
+      <CardDescription>bs.details</CardDescription>
+    </CardHeader>
+    <CardContent>
+      bs.details
+    </CardContent>
+    <CardFooter>
+      <Button>{{ bs.price }}</Button>
+    </CardFooter>
+  </Card>
+</template>
