@@ -46,6 +46,7 @@ async function getBikeshop() {
 
 onMounted(() => {
   getBikeshop();
+  console.log(bikeshop.value.length)
 })
 
 // onUpdated(() => {
