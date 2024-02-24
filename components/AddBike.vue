@@ -1,5 +1,7 @@
 <template>
     <div>
+        <Input type="text" placeholder="Model" />
+
         <Popover>
             <PopoverTrigger as-child>
                 <Button :variant="'outline'" :class="cn(
@@ -20,6 +22,7 @@
 <script setup lang="ts">
 import { format } from 'date-fns'
 import { Calendar as CalendarIcon } from 'lucide-vue-next'
+import { Input } from '@/components/ui/input'
 
 import { ref } from 'vue'
 import { cn } from '@/lib/utils'
@@ -32,6 +35,23 @@ import {
 } from '@/components/ui/popover'
 
 const date = ref<Date>()
+const user = useSupabaseUser()
+
+const bikeForm = ref({
+    brand: "",
+    model: "",
+    year: "",
+    user_id: user.value.id,
+})
+
+function resetForm() {
+    bikeForm.value = {
+        brand: "",
+        model: "",
+        year: "",
+        user_id: user.value.id,
+    }
+}
 </script>
 
 <style scoped></style>
