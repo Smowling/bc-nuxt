@@ -1,6 +1,7 @@
 <template>
     <div>
-        <Input type="text" placeholder="Model" />
+        <Input type="text" placeholder="Brand" v-model="bikeForm.brand" />
+        <Input type="text" placeholder="Model" v-model="bikeForm.model" />
 
         <Popover>
             <PopoverTrigger as-child>
@@ -40,7 +41,7 @@ const user = useSupabaseUser()
 const bikeForm = ref({
     brand: "",
     model: "",
-    year: "",
+    year: date,
     user_id: user.value.id,
 })
 
@@ -48,7 +49,7 @@ function resetForm() {
     bikeForm.value = {
         brand: "",
         model: "",
-        year: "",
+        year: date,
         user_id: user.value.id,
     }
 }
