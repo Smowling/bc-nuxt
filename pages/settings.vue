@@ -1,14 +1,17 @@
 <template>
     <div>
         <p>Bikes</p>
+
         <Popover>
             <PopoverTrigger>
                 <Button>Add bike</Button>
             </PopoverTrigger>
-            <PopoverContent>
+
+            <PopoverContent class="w-auto p-0">
                 <AddBike />
             </PopoverContent>
         </Popover>
+
         <ul>
             <li v-for="(bike, index) in settings" :key="index">
                 <BikeCard :bike="bike" />

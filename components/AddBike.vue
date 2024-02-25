@@ -17,6 +17,8 @@
                 <Calendar v-model="date" />
             </PopoverContent>
         </Popover>
+        <Button @click="addBike">Add bike</Button>
+
     </div>
 </template>
 
@@ -37,6 +39,7 @@ import {
 
 const date = ref<Date>()
 const user = useSupabaseUser()
+const supabase = useSupabaseClient()
 
 const bikeForm = ref({
     brand: "",
@@ -51,6 +54,16 @@ function resetForm() {
         model: "",
         year: date,
         user_id: user.value.id,
+    }
+}
+async function addBike() {
+    console.log(bikeForm.value)
+    const { error } = await supabase.from("bikes").insert(bikeForm.value)
+    if (error) {
+        console.log(error.message)
+    }
+    else {
+        resetForm()
     }
 }
 </script>
