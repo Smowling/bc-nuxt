@@ -4,7 +4,7 @@
 
         <Popover>
             <PopoverTrigger>
-                <Button>Add bike</Button>
+                <Button>Button</Button>
             </PopoverTrigger>
 
             <PopoverContent class="w-auto p-0">
