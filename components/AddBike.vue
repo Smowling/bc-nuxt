@@ -2,6 +2,7 @@
     <div>
         <Input type="text" placeholder="Brand" v-model="bikeForm.brand" />
         <Input type="text" placeholder="Model" v-model="bikeForm.model" />
+        <Input type="text" placeholder="SN" v-model="bikeForm.sn" />
 
         <Popover>
             <PopoverTrigger as-child>
@@ -44,7 +45,8 @@ const supabase = useSupabaseClient()
 const bikeForm = ref({
     brand: "",
     model: "",
-    year: date,
+    year: Date,
+    sn: "",
     user_id: user.value.id,
 })
 
@@ -52,11 +54,13 @@ function resetForm() {
     bikeForm.value = {
         brand: "",
         model: "",
-        year: date,
+        sn: "",
+        year: Date,
         user_id: user.value.id,
     }
 }
 async function addBike() {
+    bikeForm.value.year = date.value
     console.log(bikeForm.value)
     const { error } = await supabase.from("bikes").insert(bikeForm.value)
     if (error) {

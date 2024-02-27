@@ -4,7 +4,11 @@
 
         <Popover>
             <PopoverTrigger>
-                <Button>Button</Button>
+                <Button :variant="'outline'" :class="cn(
+                    'justify-start text-left font-normal'
+                )">
+                    <span>Add bike</span>
+                </Button>
             </PopoverTrigger>
 
             <PopoverContent class="w-auto p-0">
@@ -49,6 +53,7 @@ const bikeForm = ref({
     brand: "",
     model: "",
     year: "",
+    sn: "",
     user_id: user.value.id,
 })
 
@@ -66,6 +71,7 @@ function resetForm() {
         brand: "",
         model: "",
         year: "",
+        sn: "",
         user_id: user.value.id,
     }
 }

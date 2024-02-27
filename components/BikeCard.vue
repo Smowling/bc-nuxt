@@ -8,6 +8,9 @@
                 {{ bike.model }}
             </CardContent>
             <CardContent>
+                {{ bike.sn }}
+            </CardContent>
+            <CardContent>
                 {{ bike.year }}
             </CardContent>
         </Card>
