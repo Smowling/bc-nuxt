@@ -20,14 +20,12 @@
 </template>
 
 <script setup lang="ts">
-import { format } from 'date-fns'
-import { Calendar as CalendarIcon } from 'lucide-vue-next'
+
 import { Input } from '@/components/ui/input'
 
 import { ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
 import {
     Popover,
     PopoverContent,
@@ -46,7 +44,7 @@ const addressForm = ref({
     user_id: user.value.id,
 })
 
-function resetForm() {
+function resetAddressForm() {
     addressForm.value = {
         country: "",
         city: "",
@@ -57,12 +55,12 @@ function resetForm() {
 }
 async function addAddress() {
     console.log(addressForm.value)
-    const { error } = await supabase.from("bikes").insert(addressForm.value)
+    const { error } = await supabase.from("address").insert(addressForm.value)
     if (error) {
         console.log(error.message)
     }
     else {
-        resetForm()
+        resetAddressForm()
     }
 }
 </script>
