@@ -1,24 +1,36 @@
 <template>
     <div>
-        <Input type="text" placeholder="Brand" v-model="bikeForm.brand" />
-        <Input type="text" placeholder="Model" v-model="bikeForm.model" />
-        <Input type="text" placeholder="SN" v-model="bikeForm.sn" />
-
         <Popover>
-            <PopoverTrigger as-child>
+            <PopoverTrigger>
                 <Button :variant="'outline'" :class="cn(
-                    'w-[280px] justify-start text-left font-normal',
-                    !date && 'text-muted-foreground',
+                    'justify-start text-left font-normal'
                 )">
-                    <CalendarIcon class="mr-2 h-4 w-4" />
-                    <span>{{ date ? format(date, "PPP") : "Pick a date" }}</span>
+                    <span>Add bike</span>
                 </Button>
             </PopoverTrigger>
+
             <PopoverContent class="w-auto p-0">
-                <Calendar v-model="date" />
+                <Input type="text" placeholder="Brand" v-model="bikeForm.brand" />
+                <Input type="text" placeholder="Model" v-model="bikeForm.model" />
+                <Input type="text" placeholder="SN" v-model="bikeForm.sn" />
+
+                <Popover>
+                    <PopoverTrigger as-child>
+                        <Button :variant="'outline'" :class="cn(
+                            'w-[280px] justify-start text-left font-normal',
+                            !date && 'text-muted-foreground',
+                        )">
+                            <CalendarIcon class="mr-2 h-4 w-4" />
+                            <span>{{ date ? format(date, "PPP") : "Pick a date" }}</span>
+                        </Button>
+                    </PopoverTrigger>
+                    <PopoverContent class="w-auto p-0">
+                        <Calendar v-model="date" />
+                    </PopoverContent>
+                </Popover>
+                <Button @click="addBike">Add bike</Button>
             </PopoverContent>
         </Popover>
-        <Button @click="addBike">Add bike</Button>
 
     </div>
 </template>

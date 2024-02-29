@@ -1,21 +1,7 @@
 <template>
     <div>
         <p>Bikes</p>
-
-        <Popover>
-            <PopoverTrigger>
-                <Button :variant="'outline'" :class="cn(
-                    'justify-start text-left font-normal'
-                )">
-                    <span>Add bike</span>
-                </Button>
-            </PopoverTrigger>
-
-            <PopoverContent class="w-auto p-0">
-                <AddBike />
-            </PopoverContent>
-        </Popover>
-
+        <AddBike />
         <ul>
             <li v-for="(bike, index) in settings" :key="index">
                 <BikeCard :bike="bike" />
@@ -23,6 +9,9 @@
                 <UButton label="Delete" icon="i-heroicons-minus-solid" @click="deleteBike(bike.id)" />
             </li>
         </ul>
+        <p>Address</p>
+        <AddAddress />
+
 
 
     </div>

@@ -1,25 +1,21 @@
 <template>
     <div>
-        <Input type="text" placeholder="Brand" v-model="bikeForm.brand" />
-        <Input type="text" placeholder="Model" v-model="bikeForm.model" />
-        <Input type="text" placeholder="SN" v-model="bikeForm.sn" />
-
         <Popover>
-            <PopoverTrigger as-child>
+            <PopoverTrigger>
                 <Button :variant="'outline'" :class="cn(
-                    'w-[280px] justify-start text-left font-normal',
-                    !date && 'text-muted-foreground',
+                    'justify-start text-left font-normal'
                 )">
-                    <CalendarIcon class="mr-2 h-4 w-4" />
-                    <span>{{ date ? format(date, "PPP") : "Pick a date" }}</span>
+                    <span>Add address</span>
                 </Button>
             </PopoverTrigger>
             <PopoverContent class="w-auto p-0">
-                <Calendar v-model="date" />
+                <Input type="text" placeholder="Country" v-model="addressForm.country" />
+                <Input type="text" placeholder="City" v-model="addressForm.city" />
+                <Input type="text" placeholder="Street" v-model="addressForm.street" />
+                <Input type="text" placeholder="Number" v-model="addressForm.number" />
+                <Button @click="addAddress">Add address</Button>
             </PopoverContent>
         </Popover>
-        <Button @click="addBike">Add bike</Button>
-
     </div>
 </template>
 
@@ -42,27 +38,26 @@ const date = ref<Date>()
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
 
-const bikeForm = ref({
-    brand: "",
-    model: "",
-    year: Date,
-    sn: "",
+const addressForm = ref({
+    country: "",
+    city: "",
+    street: "",
+    number: "",
     user_id: user.value.id,
 })
 
 function resetForm() {
-    bikeForm.value = {
-        brand: "",
-        model: "",
-        sn: "",
-        year: Date,
+    addressForm.value = {
+        country: "",
+        city: "",
+        street: "",
+        number: "",
         user_id: user.value.id,
     }
 }
 async function addAddress() {
-    bikeForm.value.year = date.value
-    console.log(bikeForm.value)
-    const { error } = await supabase.from("bikes").insert(bikeForm.value)
+    console.log(addressForm.value)
+    const { error } = await supabase.from("bikes").insert(addressForm.value)
     if (error) {
         console.log(error.message)
     }
