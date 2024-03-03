@@ -22,35 +22,10 @@ import { ref } from 'vue'
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
 const settings = ref('')
-const add_bike = ref(false)
-
-const bikeForm = ref({
-    brand: "",
-    model: "",
-    year: "",
-    sn: "",
-    user_id: user.value.id,
-})
 
 onMounted(() => {
     getUserSettings();
 })
-
-// onUpdated(() => {
-//     getUserSettings();
-// })
-
-// Reset form function
-function resetForm() {
-    bikeForm.value = {
-        brand: "",
-        model: "",
-        year: "",
-        sn: "",
-        user_id: user.value.id,
-    }
-}
-
 
 
 async function getUserSettings() {
