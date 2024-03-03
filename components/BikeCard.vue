@@ -30,6 +30,9 @@ async function deleteBike(bike_id) {
     if (error) {
         console.log(error.message)
     }
+    else {
+        await refreshNuxtData(bike)
+    }
 }
 
 </script>
