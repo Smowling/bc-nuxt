@@ -23,6 +23,7 @@
 
 <script setup>
 defineProps(["bike", "index"])
+defineEmits(["deleteBike"])
 // const supabase = useSupabaseClient()
 
 // async function deleteBike(bike_id) {
