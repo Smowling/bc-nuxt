@@ -4,7 +4,7 @@
         <AddBike />
         <ul>
             <li v-for="(bike, index) in settings" :key="index">
-                <BikeCard :bike="bike" />
+                <BikeCard :bike="bike" :index="index" v-on:deleteBike="deleteBike" />
             </li>
         </ul>
         <p>Address</p>
@@ -24,9 +24,20 @@ const supabase = useSupabaseClient()
 const settings = ref('')
 
 onMounted(() => {
-    getUserSettings();
+    getUserSettings()
 })
+async function deleteBike(bike_id, index) {
+    console.log(index, bike_id)
 
+    // const { error } = await supabase.from("bikes").delete().eq("id", bike_id)
+    // if (error) {
+    //     console.log(error.message)
+    // }
+    // else {
+    //     await refreshNuxtData(bike)
+    //     console.log(index)
+    // }
+}
 
 async function getUserSettings() {
     const { data, error } = await supabase.from('bikes').select().eq("user_id", user.value.id)
