@@ -12,6 +12,8 @@
             </CardContent>
             <CardContent>
                 {{ bike.year }}
+                {{ bike.id }}
+                {{ index }}
             </CardContent>
             <CardFooter>
                 <Button><span>History</span></Button>

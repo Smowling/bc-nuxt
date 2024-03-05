@@ -4,14 +4,11 @@
         <AddBike />
         <ul>
             <li v-for="(bike, index) in settings" :key="index">
-                <BikeCard :bike="bike" :index="index" v-on:deleteBike="deleteBike" />
+                <BikeCard :bike="bike" :index="index" @deleteBike="handleDeleteBike" />
             </li>
         </ul>
         <p>Address</p>
         <AddAddress />
-
-
-
     </div>
 </template>
 
@@ -26,7 +23,7 @@ const settings = ref('')
 onMounted(() => {
     getUserSettings()
 })
-async function deleteBike(bike_id, index) {
+async function handleDeleteBike(bike_id, index) {
     console.log(index, bike_id)
 
     // const { error } = await supabase.from("bikes").delete().eq("id", bike_id)
