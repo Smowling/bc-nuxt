@@ -6,6 +6,17 @@ export default defineNuxtConfig({
   "colorMode": {
     "preference": 'light'
   },
+  i18n: {
+    // Module Options
+    lazy: false,
+    langDir: 'locales',
+    strategy: 'prefix',
+    locales: [
+      { code: 'en', name: "English", flag: "🇺🇸", iso: 'en-US', file: 'en-US.json' },
+      { code: 'pl', name: "Polski", flag: "🇵🇱", iso: 'pl-PL', file: 'pl-PL.json' },
+    ],
+    defaultLocale: 'en',
+  },
   shadcn: {
     /**
      * Prefix for all the imported component
