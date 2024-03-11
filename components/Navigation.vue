@@ -1,14 +1,17 @@
 <template>
     <div>
         <nav class="container mx-auto p-4 flex justify-between">
-      <ULink to="/" class="font-bold">Bikecheck!</ULink>
+      <ULink :to="localePath('/')" class="font-bold">Bikecheck!</ULink>
       <UInput v-model="search" color="white" variant="outline" placeholder="Search..." />
       <ul class="flex gap-4">
         <li>
-          <ULink to="/">HOME</ULink>
+          <ULink :to="localePath('/')">HOME</ULink>
         </li>
         <li>
-          <ULink to="/about">ABOUT</ULink>
+          <ULink :to="localePath('/about')">ABOUT</ULink>
+        </li>
+        <li>
+          <ULink :to="localePath('/settings')">SETTINGS</ULink>
         </li>
         <Language />
         <ModeSwitch />
@@ -16,7 +19,7 @@
           <Button @click="signOut">Logout</Button>
         </li>
         <li v-if="!user">
-          <Button to="/login">Login</Button>
+          <Button :to="localePath('/login')">Login</Button>
         </li>
       </ul>
     </nav>
@@ -25,6 +28,7 @@
 
 <script setup lang="ts">
 const search = ref('')
+const localePath = useLocalePath()
 
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()

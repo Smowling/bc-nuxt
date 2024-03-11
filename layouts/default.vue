@@ -1,6 +1,5 @@
 <template>
   <header class="shadow-sm">
-    <UHorizontalNavigation :links="links" class="border-b border-gray-200 dark:border-gray-800" />
     <Navigation />
 
   </header>
