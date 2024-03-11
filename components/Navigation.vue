@@ -11,7 +11,7 @@
           <ULink to="/about">ABOUT</ULink>
         </li>
         <Language />
-
+        <ModeSwitch />
         <li v-if="user">
           <Button @click="signOut">Logout</Button>
         </li>
