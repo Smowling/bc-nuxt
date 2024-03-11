@@ -1,6 +1,7 @@
 <template>
   <header class="shadow-sm">
     <UHorizontalNavigation :links="links" class="border-b border-gray-200 dark:border-gray-800" />
+    <Navigation />
     <nav class="container mx-auto p-4 flex justify-between">
       <ULink to="/" class="font-bold">Bikecheck!</ULink>
       <UInput v-model="search" color="white" variant="outline" placeholder="Search..." />
@@ -65,18 +66,6 @@ const isDark = computed({
 
 
 // user?
-const user = useSupabaseUser()
-const supabase = useSupabaseClient()
 
-async function signOut() {
-  try {
-    const { error } = await supabase.auth.signOut()
-    if (error) throw error
-    user.value = null
-    return navigateTo('/')
-  } catch (error) {
-    alert(error.message)
-  }
-}
 
 </script>
