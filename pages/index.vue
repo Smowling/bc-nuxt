@@ -1,6 +1,6 @@
 <template>
     <div class="grid grid-cols-4 gap-4">
-        <ULink v-for="(bikeshop, index) in bikeshops" :key="index" :to="'/bikeshop/' + bikeshop.url">
+        <ULink v-for="(bikeshop, index) in bikeshops" :key="index" :to="localePath('/bikeshop/' + bikeshop.url)">
             <UCard>
                 <p>{{ bikeshop.description }}</p>
                 <template #footer>
@@ -8,7 +8,7 @@
                 </template>
             </UCard>
         </ULink>
-        <Button>test</Button>
+        
         <UCard v-for="index in 40" :key="index">
             <template #header>
                 <p>test case {{ index }}</p>
