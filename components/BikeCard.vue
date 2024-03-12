@@ -17,7 +17,7 @@
             </CardContent>
             <CardFooter>
                 <Button><span>History</span></Button>
-                <Button @click="$emit(deleteBike, bike.id, index)"><span>Delete</span></Button>
+                <Button @click="bikeDelete(bike.id, index)"><span>Delete</span></Button>
             </CardFooter>
         </Card>
     </div>
@@ -27,7 +27,11 @@
 // import { test1 } from '~/lib/consts';
 
 defineProps(["bike", "index"])
-defineEmits(["deleteBike"])
+const emit = defineEmits(["deleteBike"])
+
+function bikeDelete(bikeid, index) {
+    emit("deleteBike", bikeid, index)
+}
 // const supabase = useSupabaseClient()
 // async function deleteBike(bike_id) {
 //     const { error } = await supabase.from("bikes").delete().eq("id", bike_id)

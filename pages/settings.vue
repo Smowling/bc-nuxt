@@ -25,6 +25,7 @@ onMounted(() => {
 })
 async function handleDeleteBike(bike_id, index) {
     console.log(index, bike_id)
+    console.log(settings)
 
     // const { error } = await supabase.from("bikes").delete().eq("id", bike_id)
     // if (error) {
