@@ -23,19 +23,12 @@
 
 <script setup>
 const supabase = useSupabaseClient()
-
 const bikeshops = ref();
 
 onMounted(() => {
     getBikeshops();
 
 })
-
-// async function getBikeshops() {
-//     const { data: dbData, error } = await supabase.from('bikeshops').select()
-//     if (error) console.log("Error", error);
-//     else bikeshops.value = dbData;
-// }
 
 async function getBikeshops() {
     // First, try to load the data from the local cache (reactive)
