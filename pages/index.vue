@@ -8,8 +8,8 @@
                 </template>
             </UCard>
         </ULink>
-        
-        <UCard v-for="index in 40" :key="index">
+        <ULink v-for="index in 40" :key="index" :to="localePath('/bikeshop/' + index)">
+        <UCard>
             <template #header>
                 <p>test case {{ index }}</p>
             </template>
@@ -17,6 +17,7 @@
                 <p>footer {{ index }}</p>
             </template>
         </UCard>
+    </ULink>
     </div>
 </template>
 
