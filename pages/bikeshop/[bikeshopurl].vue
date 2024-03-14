@@ -32,7 +32,7 @@
 <script setup>
 
 const supabase = useSupabaseClient()
-const bikeshop = ref('')
+const bikeshop = useBikeshopStore();
 
 // async function getBikeshop() {
 //   const { data, error } = await supabase.from('bikeshop_and_services').select().eq("url", bikeshopurl)
