@@ -10,6 +10,7 @@ import {
 const props = withDefaults(defineProps<{
   bikeshop?: any
 }>(), {})
+
 </script>
 
 <template>
@@ -18,9 +19,11 @@ const props = withDefaults(defineProps<{
       <CardTitle>{{ bs.service }}</CardTitle>
       <CardDescription>{{ bs.details }}</CardDescription>
     </CardHeader>
+
     <CardContent>
       {{ bs.details }}
     </CardContent>
+
     <CardFooter>
       <Button>{{ bs.price }}</Button>
     </CardFooter>

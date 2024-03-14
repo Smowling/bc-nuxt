@@ -3,7 +3,7 @@
     <template #default>
       <div>
         <UContainer>
-          <p>{{ bikeshopurl }}</p>
+          <p>{{ bikeshop.name }}</p>
           <!-- <p>{{ bikeshop[0].bikeshop }}</p>
         <p>{{ bikeshop[0].description }}</p>
         <p>{{ bikeshop[0].email }}</p> -->
@@ -17,7 +17,7 @@
             <p>{{ bs.price }}</p>
           </template>
         </UCard> -->
-        <ServiceCard bikeshop="bikeshop" />
+        <!-- <ServiceCard/> -->
       </div>
     </template>
 
@@ -31,22 +31,22 @@
 
 <script setup>
 
-const { bikeshopurl } = useRoute().params
 const supabase = useSupabaseClient()
 const bikeshop = ref('')
 
-async function getBikeshop() {
-  const { data, error } = await supabase.from('bikeshop_and_services').select().eq("url", bikeshopurl)
-  if (error) { console.log(error.message) }
-  else {
-    bikeshop.value = data
-  }
-}
+// async function getBikeshop() {
+//   const { data, error } = await supabase.from('bikeshop_and_services').select().eq("url", bikeshopurl)
+//   if (error) { console.log(error.message) }
+//   else {
+//     bikeshop.value = data
+//   }
+// }
 
 
 onMounted(() => {
-  getBikeshop();
-  console.log(bikeshop.value.length)
+  // getBikeshop();
+  async () => { await store.dispatch('selectBikeshop', bikeshop)}
+  console.log(bikeshop)
 })
 
 // onUpdated(() => {

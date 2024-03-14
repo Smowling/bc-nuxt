@@ -25,6 +25,13 @@
 const supabase = useSupabaseClient()
 const bikeshops = ref();
 
+// const store = useStore();
+
+// function selectBikeshop(bikeshop) {
+//     store.dispatch('selectBikeshop', bikeshop);
+// }
+
+
 onMounted(() => {
     getBikeshops();
 
