@@ -1,3 +1,6 @@
 {
-    "name": "en"
+    "name": "en",
+    "navHome": "Bikeshops",
+    "navAbout": "About",
+    "navSettings": "Settings"
 }

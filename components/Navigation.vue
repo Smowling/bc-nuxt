@@ -5,13 +5,13 @@
       <UInput v-model="search" color="white" variant="outline" placeholder="Search..." />
       <ul class="flex gap-4">
         <li>
-          <ULink :to="localePath('/')">HOME</ULink>
+          <ULink :to="localePath('/')">{{ $t('navHome') }}</ULink>
         </li>
         <li>
-          <ULink :to="localePath('/about')">ABOUT</ULink>
+          <ULink :to="localePath('/about')">{{ $t('navAbout') }}</ULink>
         </li>
         <li>
-          <ULink :to="localePath('/settings')">SETTINGS</ULink>
+          <ULink :to="localePath('/settings')">{{ $t('navSettings') }}</ULink>
         </li>
         <Language />
         <ModeSwitch />

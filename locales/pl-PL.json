@@ -35,4 +35,7 @@
             "description": "Po serwisie możesz ocenić swoje doświadczenia."
         }
     ],
+    "navHome": "Serwisy",
+    "navAbout": "O nas",
+    "navSettings": "Ustawienia"
 }
