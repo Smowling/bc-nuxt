@@ -16,10 +16,10 @@
         <Language />
         <ModeSwitch />
         <li v-if="user">
-          <Button @click="signOut">Logout</Button>
+          <Button @click="signOut">{{ $t('navLogout') }}</Button>
         </li>
         <li v-if="!user">
-          <Button :to="localePath('/login')">Login</Button>
+          <Button :to="localePath('/login')">{{ $t('navLogin') }}</Button>
         </li>
       </ul>
     </nav>

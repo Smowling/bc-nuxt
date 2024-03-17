@@ -37,5 +37,9 @@
     ],
     "navHome": "Serwisy",
     "navAbout": "O nas",
-    "navSettings": "Ustawienia"
+    "navSettings": "Ustawienia",
+    "navLogin": "Zaloguj się",
+    "navLogout": "Wyloguj się",
+    "btnDelete": "Usuń",
+    "btnHistory": "Historia"
 }

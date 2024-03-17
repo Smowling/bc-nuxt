@@ -16,8 +16,8 @@
                 {{ index }}
             </CardContent>
             <CardFooter>
-                <Button><span>History</span></Button>
-                <Button @click="bikeDelete(bike.id, index)"><span>Delete</span></Button>
+                <Button><span>{{ $t('btnHistory') }}</span></Button>
+                <Button @click="bikeDelete(bike.id, index)"><span>{{ $t('btnDelete') }}</span></Button>
             </CardFooter>
         </Card>
     </div>

@@ -2,5 +2,9 @@
     "name": "en",
     "navHome": "Bikeshops",
     "navAbout": "About",
-    "navSettings": "Settings"
+    "navSettings": "Settings",
+    "navLogin": "Login",
+    "navLogout": "Logout",
+    "btnDelete": "Delete",
+    "btnHistory": "History"
 }
