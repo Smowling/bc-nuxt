@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <p>about page!</p>
-    </div>
-</template>
+    <Features />
+  </template>
+
+
 
 <script setup>
 

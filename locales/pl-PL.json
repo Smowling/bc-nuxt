@@ -1,5 +1,12 @@
 {
     "name": "pl",
+    "navHome": "Serwisy",
+    "navAbout": "O nas",
+    "navSettings": "Ustawienia",
+    "navLogin": "Zaloguj się",
+    "navLogout": "Wyloguj się",
+    "btnDelete": "Usuń",
+    "btnHistory": "Historia",
     "features_header": "Wszystko co musisz wiedzieć",
     "features": [
         {
@@ -34,12 +41,5 @@
             "title": "Oceń usługę",
             "description": "Po serwisie możesz ocenić swoje doświadczenia."
         }
-    ],
-    "navHome": "Serwisy",
-    "navAbout": "O nas",
-    "navSettings": "Ustawienia",
-    "navLogin": "Zaloguj się",
-    "navLogout": "Wyloguj się",
-    "btnDelete": "Usuń",
-    "btnHistory": "Historia"
+    ]
 }
