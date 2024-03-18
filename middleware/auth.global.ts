@@ -2,7 +2,7 @@
 
 export default defineNuxtRouteMiddleware((context) => {
     const user = useSupabaseUser();
-    const routes: string[] = ['/settings', '/about'];
+    const routes: string[] = ['/settings'];
 
     if (!user.value && routes.includes(context.path)) {
         return navigateTo('/login');
