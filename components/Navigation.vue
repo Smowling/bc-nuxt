@@ -1,7 +1,10 @@
 <template>
     <div>
         <nav class="container mx-auto p-4 flex justify-between">
-      <ULink :to="localePath('/')" class="font-bold">Bikecheck!</ULink>
+      <ULink :to="localePath('/')" class="text-lg"><span class="font-bold text-slate-800 text-2xl">Bike</span
+          ><span class="text-slate-500 text-2xl">check</span
+          ><span class="font-bold text-slate-800 text-2xl">!</span>
+        </ULink>
       <UInput v-model="search" color="white" variant="outline" placeholder="Search..." />
       <ul class="flex gap-4">
         <li>
