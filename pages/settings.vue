@@ -1,14 +1,18 @@
 <template>
     <div>
         <p>Bikes</p>
+
         <AddBike />
+
         <ul>
             <li v-for="(bike, index) in bikes" :key="index">
                 <BikeCard :bike="bike" :index="index" @deleteBike="handleDeleteBike" />
             </li>
         </ul>
         <p>Address</p>
+
         <AddAddress />
+
         <ul>
             <li v-for="(address, index) in address" :key="index">
                 <p>{{ address.street }}</p>
@@ -34,7 +38,6 @@ async function handleDeleteBike(bike_id, index) {
     if (error) {
         console.log(error.message)
     } else {
-        // Remove the bike from the bikes array after successful deletion
         bikes.value.splice(index, 1);
     }
 }
