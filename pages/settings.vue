@@ -23,18 +23,19 @@ import { ref } from 'vue'
 
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
-const bikes = ref()
-const address = ref()
+const bikes = ref([])
+const address = ref([])
 onMounted(() => {
     getUserBikes();
     getUserAddress();
 })
 async function handleDeleteBike(bike_id, index) {
-    bikes.value.splice[index, 1]
-    console.log(bikes.value[index])
     const { error } = await supabase.from("bikes").delete().eq("id", bike_id)
     if (error) {
         console.log(error.message)
+    } else {
+        // Remove the bike from the bikes array after successful deletion
+        bikes.value.splice(index, 1);
     }
 }
 
