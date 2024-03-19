@@ -1,6 +1,6 @@
 <template>
     <div class="grid grid-cols-4 gap-4">
-        <ULink v-for="(bikeshop, index) in bikeshops" @click="selectBikeshop(bikeshop)"  :key="index" :to="localePath('/bikeshop/' + bikeshop.url)">
+        <ULink v-for="(bikeshop, index) in bikeshops" :key="index" :to="localePath('/bikeshop/' + bikeshop.url)">
             <UCard>
                 <p>{{ bikeshop.description }}</p>
                 <template #footer>
@@ -24,13 +24,6 @@
 <script setup>
 const supabase = useSupabaseClient()
 const bikeshops = ref();
-const bikeshopStore = useBikeshopStore();
-
-// const store = useStore();
-
-// function selectBikeshop(bikeshop) {
-//     bikeshopStore = bikeshop
-// }
 
 
 onMounted(() => {
