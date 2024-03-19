@@ -1,7 +1,8 @@
 <template>
     <div>
         <nav class="container mx-auto p-4 flex justify-between">
-      <ULink :to="localePath('/')" class="text-lg"><span class="font-bold text-slate-800 text-2xl">Bike</span
+      <ULink :to="localePath('/')" class="text-lg">
+          <span class="font-bold text-slate-800 text-2xl">Bike</span
           ><span class="text-slate-500 text-2xl">check</span
           ><span class="font-bold text-slate-800 text-2xl">!</span>
         </ULink>
@@ -41,7 +42,7 @@ async function signOut() {
     const { error } = await supabase.auth.signOut()
     if (error) throw error
     user.value = null
-    return navigateTo('/')
+    return navigateTo(localePath('/'))
   } catch (error) {
     alert(error.message)
   }
