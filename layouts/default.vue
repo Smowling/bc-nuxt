@@ -12,23 +12,5 @@
 
 
 <script setup>
-// horizontal nav
-const links = [
-  {
-    label: 'Home',
-    to: '/'
-  },
-  {
-    label: 'About',
-    to: '/about'
-  },
-  {
-    label: 'Settings',
-    to: '/settings'
-  }
-
-]
-
-
 
 </script>
