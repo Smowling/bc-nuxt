@@ -15,7 +15,7 @@
 
         <ul>
             <li v-for="(address, index) in address" :key="index">
-                <p>{{ address.street }}</p>
+                <AddressCard :address="address" :index="index" @addressDelete="handleDeleteAddress" />
             </li>
         </ul>
     </div>
@@ -42,6 +42,14 @@ async function handleDeleteBike(bike_id, index) {
     }
 }
 
+async function handleDeleteAddress(address_id, index) {
+    const { error } = await supabase.from("address").delete().eq("id", address_id)
+    if (error) {
+        console.log(error.message)
+    } else {
+        address.value.splice(index, 1);
+    }
+}
 async function getUserBikes() {
     const { data, error } = await supabase.from('bikes').select().eq("user_id", user.value.id)
     if (error) { console.log(error.message) }

@@ -6,6 +6,7 @@
     "navLogin": "Login",
     "navLogout": "Logout",
     "btnDelete": "Delete",
+    "btnEdit": "Edit",
     "btnHistory": "History",
     "features_header": "Everything you need to know",
     "features": [

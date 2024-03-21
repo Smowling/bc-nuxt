@@ -1,7 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   "modules": ['@nuxtjs/supabase', '@nuxt/ui', '@nuxtjs/tailwindcss', 'shadcn-nuxt', '@nuxtjs/i18n', '@pinia/nuxt'],
-  "devtools": { enabled: true },
+  "devtools": {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
   "supabase": { redirect: false },
   "colorMode": {
     "preference": 'light'
