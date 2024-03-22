@@ -85,9 +85,9 @@ async function addBike() {
 
 const emit = defineEmits(["addBike"])
 
-function adBike(bikeForm) {
-    // bikeForm.value.year = date.value
-    emit("addBike", bikeForm);
+function adBike() {
+    bikeForm.value.year = date.value
+    emit("addBike", bikeForm.value);
     resetForm();
 }
 

@@ -2,7 +2,7 @@
     <div>
         <p>Bikes</p>
 
-        <AddBike @adBike="handleAddBike" />
+        <AddBike @addBike="handleAddBike" />
 
         <ul>
             <li v-for="(bike, index) in bikes" :key="index">
