@@ -2,7 +2,7 @@
     <div>
         <p>Bikes</p>
 
-        <AddBike />
+        <AddBike @adBike="handleAddBike" />
 
         <ul>
             <li v-for="(bike, index) in bikes" :key="index">
@@ -39,6 +39,14 @@ async function handleDeleteBike(bike_id, index) {
         console.log(error.message)
     } else {
         bikes.value.splice(index, 1);
+    }
+}
+async function handleAddBike(bikeForm) {
+    const { data, error } = await supabase.from("bikes").insert(bikeForm.value).select()
+    if (error) {
+        console.log(error.message)
+    } else {
+        address.value.push(data)
     }
 }
 

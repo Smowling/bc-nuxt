@@ -32,16 +32,7 @@ const emit = defineEmits(["deleteBike"])
 function bikeDelete(bikeid, index) {
     emit("deleteBike", bikeid, index)
 }
-// const supabase = useSupabaseClient()
-// async function deleteBike(bike_id) {
-//     const { error } = await supabase.from("bikes").delete().eq("id", bike_id)
-//     if (error) {
-//         console.log(error.message)
-//     }
-//     else {
-//         await refreshNuxtData(bike)
-//     }
-// }
+
 
 </script>
 

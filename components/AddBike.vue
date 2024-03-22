@@ -17,9 +17,9 @@
                 <Popover>
                     <PopoverTrigger as-child>
                         <Button :variant="'outline'" :class="cn(
-                            'w-[280px] justify-start text-left font-normal',
-                            !date && 'text-muted-foreground',
-                        )">
+                    'w-[280px] justify-start text-left font-normal',
+                    !date && 'text-muted-foreground',
+                )">
                             <CalendarIcon class="mr-2 h-4 w-4" />
                             <span>{{ date ? format(date, "PPP") : "Pick a date" }}</span>
                         </Button>
@@ -28,7 +28,7 @@
                         <Calendar v-model="date" />
                     </PopoverContent>
                 </Popover>
-                <Button @click="addBike">Add bike</Button>
+                <Button @click="adBike">Add bike</Button>
             </PopoverContent>
         </Popover>
 
@@ -57,7 +57,7 @@ const supabase = useSupabaseClient()
 const bikeForm = ref({
     brand: "",
     model: "",
-    year: Date,
+    year: date.value,
     sn: "",
     user_id: user.value.id,
 })
@@ -82,6 +82,15 @@ async function addBike() {
         resetForm()
     }
 }
+
+const emit = defineEmits(["addBike"])
+
+function adBike(bikeForm) {
+    // bikeForm.value.year = date.value
+    emit("addBike", bikeForm);
+    resetForm();
+}
+
 </script>
 
 <style scoped></style>
