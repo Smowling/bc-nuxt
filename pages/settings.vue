@@ -11,7 +11,7 @@
         </ul>
         <p>Address</p>
 
-        <AddAddress />
+        <AddAddress @addAddress="handleAddAddress" />
 
         <ul>
             <li v-for="(address, index) in address" :key="index">
@@ -56,6 +56,14 @@ async function handleDeleteAddress(address_id, index) {
         console.log(error.message)
     } else {
         address.value.splice(index, 1);
+    }
+}
+async function handleAddAddress(addressForm) {
+    const { data, error } = await supabase.from("address").insert(addressForm).select()
+    if (error) {
+        console.log(error.message)
+    } else {
+        address.value.push(data[0])
     }
 }
 async function getUserBikes() {

@@ -53,15 +53,12 @@ function resetAddressForm() {
         user_id: user.value.id,
     }
 }
-async function addAddress() {
-    console.log(addressForm.value)
-    const { error } = await supabase.from("address").insert(addressForm.value)
-    if (error) {
-        console.log(error.message)
-    }
-    else {
-        resetAddressForm()
-    }
+
+const emit = defineEmits(["addAddress"])
+
+function addAddress() {
+    emit("addAddress", addressForm.value);
+    resetAddressForm();
 }
 </script>
 
