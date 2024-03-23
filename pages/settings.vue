@@ -42,7 +42,6 @@ async function handleDeleteBike(bike_id, index) {
     }
 }
 async function handleAddBike(bikeForm) {
-    console.log(bikeForm)
     const { data, error } = await supabase.from("bikes").insert(bikeForm).select()
     if (error) {
         console.log(error.message)
