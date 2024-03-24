@@ -37,9 +37,7 @@ async function getBikeshop() {
 
 
 onMounted(() => {
-  console.log(bikeshopurl)
   getBikeshop();
-  console.log(bikeshop.value);
 })
 
 </script>
