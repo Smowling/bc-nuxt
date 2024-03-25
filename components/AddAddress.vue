@@ -22,7 +22,6 @@
 <script setup lang="ts">
 
 import { Input } from '@/components/ui/input'
-
 import { ref } from 'vue'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -32,9 +31,7 @@ import {
     PopoverTrigger,
 } from '@/components/ui/popover'
 
-const date = ref<Date>()
 const user = useSupabaseUser()
-const supabase = useSupabaseClient()
 
 const addressForm = ref({
     country: "",
