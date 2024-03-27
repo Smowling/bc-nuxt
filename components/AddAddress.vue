@@ -13,7 +13,7 @@
                 <Input type="text" placeholder="City" v-model="addressForm.city" />
                 <Input type="text" placeholder="Street" v-model="addressForm.street" />
                 <Input type="text" placeholder="Number" v-model="addressForm.number" />
-                <Button @click="addAddress">Add address</Button>
+                <Button @click="addAddress">{{ $t('btnSave') }}</Button>
             </PopoverContent>
         </Popover>
     </div>

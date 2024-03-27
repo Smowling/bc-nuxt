@@ -28,7 +28,7 @@
                         <Calendar v-model="date" />
                     </PopoverContent>
                 </Popover>
-                <Button @click="addBike">Add bike</Button>
+                <Button @click="addBike">{{ $t('btnSave') }}</Button>
             </PopoverContent>
         </Popover>
 
