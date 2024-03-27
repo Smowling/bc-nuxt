@@ -15,7 +15,8 @@
 
         <ul>
             <li v-for="(address, index) in address" :key="index">
-                <AddressCard :address="address" :index="index" @addressDelete="handleDeleteAddress" />
+                <AddressCard :address="address" :index="index" @addressDelete="handleDeleteAddress"
+                    @editAddress="handleEditAddress" />
             </li>
         </ul>
     </div>
@@ -63,6 +64,15 @@ async function handleAddAddress(addressForm) {
     if (error) {
         console.log(error.message)
     } else {
+        address.value.push(data[0])
+    }
+}
+async function handleEditAddress(addressForm, index) {
+    const { data, error } = await supabase.from("address").update(addressForm).eq('id', addressForm.id).select()
+    if (error) {
+        console.log(error.message)
+    } else {
+        address.value.splice(index, 1)
         address.value.push(data[0])
     }
 }
