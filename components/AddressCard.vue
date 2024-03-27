@@ -20,14 +20,14 @@
         </Card>
         <Card v-else>
             <CardContent>
-                <Input type="text" placeholder="Country" v-model="address.country" />
-                <Input type="text" placeholder="City" v-model="address.city" />
-                <Input type="text" placeholder="Street" v-model="address.street" />
-                <Input type="text" placeholder="Number" v-model="address.number" />
+                <Input type="text" placeholder="Country" v-model="temp.country" />
+                <Input type="text" placeholder="City" v-model="temp.city" />
+                <Input type="text" placeholder="Street" v-model="temp.street" />
+                <Input type="text" placeholder="Number" v-model="temp.number" />
             </CardContent>
             <CardFooter>
                 <Button @click="edit = !edit"><span>{{ $t('btnCancel') }}</span></Button>
-                <Button @click="editAddress(address, index)">Edit</Button>
+                <Button @click="editAddress(temp, index)">Edit</Button>
             </CardFooter>
         </Card>
     </div>
@@ -36,8 +36,12 @@
 <script setup>
 
 const edit = ref(false)
+const temp = ref()
+
 defineProps(["address", "index"])
 const emit = defineEmits(["addressDelete", "editAddress"])
+
+temp.value = address
 
 function addressDelete(addressid, index) {
     emit("addressDelete", addressid, index)
