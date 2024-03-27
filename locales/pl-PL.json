@@ -6,7 +6,9 @@
     "navLogin": "Zaloguj się",
     "navLogout": "Wyloguj się",
     "btnDelete": "Usuń",
+    "btnSave": "Zapisz",
     "btnEdit": "Edytuj",
+    "btnCancel": "Anuluj",
     "btnHistory": "Historia",
     "features_header": "Wszystko co musisz wiedzieć",
     "features": [
