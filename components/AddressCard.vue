@@ -52,7 +52,7 @@ function addressDelete(addressid, index) {
     emit("addressDelete", addressid, index)
 }
 function addressEdit(addressForm, index) {
-    edit.value = !edit;
+    // edit.value = !edit;
     emit("addressEdit", addressForm, index);
 }
 

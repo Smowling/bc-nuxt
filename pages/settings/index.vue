@@ -14,7 +14,7 @@
         <AddAddress @addAddress="handleAddAddress" />
 
         <ul>
-            <li v-for="(address, index) in addresses.value" :key="index">
+            <li v-for="(address, index) in addresses" :key="index">
                 <AddressCard :address="address" :index="index" @addressDelete="handleDeleteAddress"
                     @addressEdit="handleEditAddress" />
             </li>
