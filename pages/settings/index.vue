@@ -14,9 +14,9 @@
         <AddAddress @addAddress="handleAddAddress" />
 
         <ul>
-            <li v-for="(address, index) in address" :key="index">
+            <li v-for="(address, index) in addresses" :key="index">
                 <AddressCard :address="address" :index="index" @addressDelete="handleDeleteAddress"
-                    @editAddress="handleEditAddress" />
+                    @addressEdit="handleEditAddress" />
             </li>
         </ul>
     </div>
@@ -29,10 +29,10 @@ import { ref } from 'vue'
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
 const bikes = ref([])
-const address = ref([])
+const addresses = ref([])
 onMounted(() => {
     getUserBikes();
-    getUserAddress();
+    getUserAddresses();
 })
 async function handleDeleteBike(bike_id, index) {
     const { error } = await supabase.from("bikes").delete().eq("id", bike_id)
@@ -72,8 +72,8 @@ async function handleEditAddress(addressForm, index) {
     if (error) {
         console.log(error.message)
     } else {
-        address.value.splice(index, 1)
-        address.value.push(data[0])
+        addresses.value.splice(index, 1)
+        addresses.value.push(data[0])
     }
 }
 async function getUserBikes() {
@@ -84,11 +84,11 @@ async function getUserBikes() {
     }
 }
 
-async function getUserAddress() {
+async function getUserAddresses() {
     const { data, error } = await supabase.from('address').select().eq("user_id", user.value.id)
     if (error) { console.log(error.message) }
     else {
-        address.value = data
+        addresses.value = data
     }
 }
 </script>

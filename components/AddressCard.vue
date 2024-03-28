@@ -39,16 +39,16 @@ const edit = ref(false)
 const temp = ref()
 
 defineProps(["address", "index"])
-const emit = defineEmits(["addressDelete", "editAddress"])
+const emit = defineEmits(["addressDelete", "addressEdit"])
 
 temp.value = address
 
 function addressDelete(addressid, index) {
     emit("addressDelete", addressid, index)
 }
-function editAddress(addressForm, index) {
+function addressEdit(addressForm, index) {
     edit.value = !edit;
-    emit("editAddress", addressForm, index);
+    emit("addressEdit", addressForm, index);
 }
 
 </script>
