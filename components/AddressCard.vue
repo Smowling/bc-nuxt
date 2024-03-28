@@ -29,7 +29,7 @@
             </CardContent>
             <CardFooter>
                 <Button @click="edit = !edit"><span>{{ $t('btnCancel') }}</span></Button>
-                <Button @click="addressEdit(temp, index)">Edit</Button>
+                <Button @click="addressEdit(temp, index)">{{ $t('btnEdit') }}</Button>
             </CardFooter>
         </Card>
 
