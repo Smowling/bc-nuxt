@@ -14,7 +14,7 @@
         <AddAddress @addAddress="handleAddAddress" />
 
         <ul>
-            <li v-for="(address, index) in addresses" :key="index">
+            <li v-for="(address, index) in addresses.value" :key="index">
                 <AddressCard :address="address" :index="index" @addressDelete="handleDeleteAddress"
                     @addressEdit="handleEditAddress" />
             </li>
@@ -56,7 +56,7 @@ async function handleDeleteAddress(address_id, index) {
     if (error) {
         console.log(error.message)
     } else {
-        address.value.splice(index, 1);
+        addresses.value.splice(index, 1);
     }
 }
 async function handleAddAddress(addressForm) {
@@ -64,7 +64,7 @@ async function handleAddAddress(addressForm) {
     if (error) {
         console.log(error.message)
     } else {
-        address.value.push(data[0])
+        addresses.value.push(data[0])
     }
 }
 async function handleEditAddress(addressForm, index) {

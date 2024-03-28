@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <Card v-if="!edit">
             <CardHeader>
             </CardHeader>
@@ -17,6 +18,7 @@
                 <Button @click="edit = !edit"><span>{{ $t('btnEdit') }}</span></Button>
                 <Button @click="addressDelete(address.id, index)"><span>{{ $t('btnDelete') }}</span></Button>
             </CardFooter>
+
         </Card>
         <Card v-else>
             <CardContent>
@@ -27,9 +29,10 @@
             </CardContent>
             <CardFooter>
                 <Button @click="edit = !edit"><span>{{ $t('btnCancel') }}</span></Button>
-                <Button @click="editAddress(temp, index)">Edit</Button>
+                <Button @click="addressEdit(temp, index)">Edit</Button>
             </CardFooter>
         </Card>
+
     </div>
 </template>
 
@@ -40,6 +43,8 @@ const temp = ref()
 
 defineProps(["address", "index"])
 const emit = defineEmits(["addressDelete", "addressEdit"])
+
+console.log(address)
 
 temp.value = address
 
