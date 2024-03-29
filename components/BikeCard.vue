@@ -24,7 +24,6 @@
 </template>
 
 <script setup>
-// import { test1 } from '~/lib/consts';
 
 defineProps(["bike", "index"])
 const emit = defineEmits(["deleteBike"])
