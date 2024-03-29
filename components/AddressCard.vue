@@ -39,14 +39,15 @@
 <script setup>
 
 const edit = ref(false)
-const temp = ref()
+const temp = ref({})
 
-defineProps(["address", "index"])
+// defineProps(["address", "index"])
 const emit = defineEmits(["addressDelete", "addressEdit"])
+const { address } = defineProps(["address", "index"]);
 
-console.log(address)
-
-temp.value = address
+onMounted(() => {
+    temp.value = address; // Creates a reactive copy of address
+});
 
 function addressDelete(addressid, index) {
     emit("addressDelete", addressid, index)
