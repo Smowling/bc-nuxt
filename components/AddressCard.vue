@@ -28,7 +28,7 @@
                 <Input type="text" placeholder="Number" v-model="temp.number" />
             </CardContent>
             <CardFooter>
-                <Button @click="edit = !edit"><span>{{ $t('btnCancel') }}</span></Button>
+                <Button @click="cancelEdit"><span>{{ $t('btnCancel') }}</span></Button>
                 <Button @click="addressEdit(temp, index)">{{ $t('btnEdit') }}</Button>
             </CardFooter>
         </Card>
@@ -41,14 +41,16 @@
 const edit = ref(false)
 const temp = ref({})
 
-// defineProps(["address", "index"])
 const emit = defineEmits(["addressDelete", "addressEdit"])
 const { address } = defineProps(["address", "index"]);
 
 onMounted(() => {
-    temp.value = address; // Creates a reactive copy of address
+    temp.value = address;
 });
-
+function cancelEdit() {
+    edit.value = !edit;
+    temp.value = address;
+}
 function addressDelete(addressid, index) {
     emit("addressDelete", addressid, index)
 }
