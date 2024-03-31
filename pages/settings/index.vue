@@ -72,7 +72,6 @@ async function handleEditAddress(addressForm, index) {
     if (error) {
         console.log(error.message)
     } else {
-        // addresses.value.splice(index, 1)
         addresses.value[index] = data[0]
     }
 }
