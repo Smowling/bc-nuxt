@@ -45,17 +45,17 @@ const emit = defineEmits(["addressDelete", "addressEdit"])
 const { address } = defineProps(["address", "index"]);
 
 onMounted(() => {
-    temp.value = address;
+    temp.value = JSON.parse(JSON.stringify(address));
 });
 function cancelEdit() {
     edit.value = !edit;
-    temp.value = address;
+    temp.value = JSON.parse(JSON.stringify(address));
 }
 function addressDelete(addressid, index) {
     emit("addressDelete", addressid, index)
 }
 function addressEdit(addressForm, index) {
-    // edit.value = !edit;
+    edit.value = !edit;
     emit("addressEdit", addressForm, index);
 }
 
