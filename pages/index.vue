@@ -9,21 +9,21 @@
             </UCard>
         </ULink>
         <ULink v-for="index in 40" :key="index" :to="localePath('/bikeshop/' + index)">
-        <UCard>
-            <template #header>
-                <p>test case {{ index }}</p>
-            </template>
-            <template #footer>
-                <p>footer {{ index }}</p>
-            </template>
-        </UCard>
-    </ULink>
+            <UCard>
+                <template #header>
+                    <p>test case {{ index }}</p>
+                </template>
+                <template #footer>
+                    <p>footer {{ index }}</p>
+                </template>
+            </UCard>
+        </ULink>
     </div>
 </template>
 
 <script setup>
 const supabase = useSupabaseClient()
-const bikeshops = ref();
+const bikeshops = ref([]);
 
 
 onMounted(() => {
