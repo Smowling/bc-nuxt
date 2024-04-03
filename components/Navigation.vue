@@ -1,11 +1,10 @@
 <template>
-    <div>
-        <nav class="container mx-auto p-4 flex justify-between">
+  <div>
+    <nav class="container mx-auto p-4 flex justify-between">
       <ULink :to="localePath('/')" class="text-lg">
-          <span class="font-bold text-slate-800 text-2xl">Bike</span
-          ><span class="text-slate-500 text-2xl">check</span
-          ><span class="font-bold text-slate-800 text-2xl">!</span>
-        </ULink>
+        <span class="font-bold text-slate-800 text-2xl">Bike</span><span
+          class="text-slate-500 text-2xl">check</span><span class="font-bold text-slate-800 text-2xl">!</span>
+      </ULink>
       <UInput v-model="search" color="white" variant="outline" placeholder="Search..." />
       <ul class="flex gap-4">
         <li>
@@ -15,6 +14,9 @@
           <ULink :to="localePath('/about')">{{ $t('navAbout') }}</ULink>
         </li>
         <li>
+          <ULink :to="localePath('/buisiness')">{{ $t('navBuisines') }}</ULink>
+        </li>
+        <li v-if="user">
           <ULink :to="localePath('/settings')">{{ $t('navSettings') }}</ULink>
         </li>
         <Language />
@@ -27,7 +29,7 @@
         </li>
       </ul>
     </nav>
-    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -51,6 +53,4 @@ async function signOut() {
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
