@@ -25,7 +25,7 @@
           <Button @click="signOut">{{ $t('navLogout') }}</Button>
         </li>
         <li v-if="!user">
-          <Button :to="localePath('/login')">{{ $t('navLogin') }}</Button>
+          <Button @click="navigateToLogin">{{ $t('navLogin') }}</Button>
         </li>
       </ul>
     </nav>
@@ -38,7 +38,11 @@ const localePath = useLocalePath()
 
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
+const router = useRouter();
 
+const navigateToLogin = () => {
+  router.push(localePath('/login'));
+};
 async function signOut() {
   try {
     const { error } = await supabase.auth.signOut()
