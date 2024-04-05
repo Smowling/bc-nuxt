@@ -4,9 +4,11 @@
       <div>
         <UContainer>
           <p>{{ bikeshop.value[0].bikeshop }}</p>
-          <p>{{ bikeshop.value[0].description }}</p>
-        </UContainer>
 
+        </UContainer>
+        <UContainer>
+          <ServiceCard :bikeshop="bikeshop.value"></ServiceCard>
+        </UContainer>
         <ServiceCard :bikeshop="bikeshop.value"></ServiceCard>
       </div>
     </template>
@@ -39,7 +41,6 @@ async function getBikeshop() {
 
 onMounted(() => {
   getBikeshop();
-  console.log(bikeshop.value)
 })
 
 </script>
