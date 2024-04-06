@@ -35,7 +35,7 @@ async function getBikeshop() {
   if (error) { console.log(error.message) }
   else {
     bikeshop.value = data;
-    console.log("loading bikeshop: ", bikeshop.value)
+    console.log("loading bikeshop: ", bikeshop.value[0])
   }
 }
 
