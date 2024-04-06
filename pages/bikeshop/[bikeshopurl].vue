@@ -3,13 +3,13 @@
     <template #default>
       <div>
         <UContainer>
-          <p>{{ bikeshop.value[0].bikeshop }}</p>
+          <!-- <p>{{ bikeshop.value[0].bikeshop }}</p> -->
 
         </UContainer>
         <UContainer>
           <ServiceCard :bikeshop="bikeshop.value"></ServiceCard>
         </UContainer>
-        <ServiceCard :bikeshop="bikeshop.value"></ServiceCard>
+        <!-- <ServiceCard :bikeshop="bikeshop.value"></ServiceCard> -->
       </div>
     </template>
 
@@ -34,7 +34,8 @@ async function getBikeshop() {
   const { data, error } = await supabase.from('bikeshop_and_services').select().eq("url", bikeshopurl)
   if (error) { console.log(error.message) }
   else {
-    bikeshop.value = data
+    bikeshop.value = data;
+    console.log("loading bikeshop: ", bikeshop.value)
   }
 }
 

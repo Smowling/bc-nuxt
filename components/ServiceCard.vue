@@ -8,7 +8,11 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 const props = withDefaults(defineProps<{
-  bikeshop?: any
+  bikeshop: Array<{
+    service: string;
+    details: string;
+    price: string;
+  }>;
 }>(), {})
 
 </script>
