@@ -1,7 +1,7 @@
 <template>
       <div>
         <UContainer>
-          <!-- <p>{{ bikeshop.value[0].bikeshop }}</p> -->
+          <!-- <p v-if="bikeshop.value.length > 0">{{ bikeshop.value[0].bikeshop }}</p> -->
 
         </UContainer>
         <UContainer>
@@ -27,7 +27,7 @@ async function getBikeshop() {
   if (error) { console.log(error.message) }
   else {
     bikeshop.value = data
-    console.log("loading bikeshop: ", bikeshop.value[0])
+    console.log("loading bikeshop: ", bikeshop)
   }
 }
 
