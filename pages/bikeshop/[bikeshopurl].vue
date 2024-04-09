@@ -4,10 +4,7 @@
           <!-- <p v-if="bikeshop.value.length > 0">{{ bikeshop.value[0].bikeshop }}</p> -->
 
         </UContainer>
-        <UContainer>
           <ServiceCard :bikeshop="bikeshop.value"></ServiceCard>
-        </UContainer>
-        <!-- <ServiceCard :bikeshop="bikeshop.value"></ServiceCard> -->
       </div>
 
 </template>
@@ -27,13 +24,12 @@ async function getBikeshop() {
   if (error) { console.log(error.message) }
   else {
     bikeshop.value = data
-    console.log("loading bikeshop: ", bikeshop)
   }
 }
+await getBikeshop();
 
-
-onMounted(() => {
-  getBikeshop();
-})
+// onMounted(() => {
+//  getBikeshop();
+// })
 
 </script>

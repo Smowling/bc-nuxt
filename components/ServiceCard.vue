@@ -8,17 +8,13 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 const props = withDefaults(defineProps<{
-  bikeshop: Array<{
-    service: string;
-    details: string;
-    price: string;
-  }>;
+  bikeshop: any
 }>(), {})
 
 </script>
 
 <template>
-  <Card v-for="(bs, index) in bikeshop" :key="index" class="shadow-sm">
+  <!-- <Card v-for="(bs, index) in bikeshop" :key="index" class="shadow-sm">
     <CardHeader>
       <CardTitle>{{ bs.service }}</CardTitle>
       <CardDescription>{{ bs.details }}</CardDescription>
@@ -31,5 +27,8 @@ const props = withDefaults(defineProps<{
     <CardFooter>
       <Button>{{ bs.price }}</Button>
     </CardFooter>
+  </Card> -->
+  <Card v-for="(bs, index) in bikeshop" :key="index" class="shadow-sm">
+    <p>{{ index }}</p>
   </Card>
 </template>
