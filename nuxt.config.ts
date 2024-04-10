@@ -1,6 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  "modules": ['@nuxtjs/supabase', '@nuxt/ui', '@nuxtjs/tailwindcss', 'shadcn-nuxt', '@nuxtjs/i18n', '@pinia/nuxt'],
+  "modules": [
+    '@nuxtjs/supabase',
+    '@nuxt/ui',
+    '@nuxtjs/tailwindcss',
+    'shadcn-nuxt',
+    '@nuxtjs/i18n',
+    '@pinia/nuxt',
+    '@nuxtjs/google-fonts',
+  ],
   "devtools": {
     enabled: true,
 
