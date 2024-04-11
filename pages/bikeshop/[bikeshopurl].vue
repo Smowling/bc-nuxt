@@ -1,7 +1,7 @@
 <template>
       <div>
-        <p>{{ bikeshop.value[0].bikeshop }}</p>
-          <ServiceCard :bikeshop="bikeshop"></ServiceCard>
+        <p v-if="bikeshop.value.length > 0">{{ bikeshop.value[0].bikeshop }}</p>
+        <ServiceCard :bikeshop="bikeshop"></ServiceCard>
       </div>
 
 </template>
@@ -18,7 +18,7 @@ const bikeshop = ref([])
 
 async function getBikeshop() {
   const { data, error } = await supabase.from('bikeshop_and_services').select().eq("url", bikeshopurl)
-  if (error) { console.log(error.message) }
+  if (error) { console.error("Failed to fetch bikeshop data:", error.message); }
   else {
     bikeshop.value = data
   }
@@ -27,8 +27,8 @@ await getBikeshop();
 
 
 console.log(bikeshop.value[0].bikeshop)
-// onMounted(() => {
-//  getBikeshop();
-// })
+onMounted(() => {
+  getBikeshop();
+});
 
 </script>
