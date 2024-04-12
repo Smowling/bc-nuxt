@@ -1,13 +1,5 @@
 <template>
     <div class="grid grid-cols-4 gap-4">
-        <ULink v-for="(bikeshop, index) in bikeshops" :key="index" :to="localePath('/bikeshop/' + bikeshop.url)">
-            <UCard>
-                <p>{{ bikeshop.description }}</p>
-                <template #footer>
-                    <p>{{ bikeshop.name }}</p>
-                </template>
-            </UCard>
-        </ULink>
         <BikeshopCard :bikeshops="bikeshops" />
         <ULink v-for="index in 40" :key="index" :to="localePath('/bikeshop/' + index)">
             <UCard>
