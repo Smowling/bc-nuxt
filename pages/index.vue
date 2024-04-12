@@ -8,6 +8,7 @@
                 </template>
             </UCard>
         </ULink>
+        <BikeshopCard :bikeshops="bikeshops" />
         <ULink v-for="index in 40" :key="index" :to="localePath('/bikeshop/' + index)">
             <UCard>
                 <template #header>
@@ -18,10 +19,13 @@
                 </template>
             </UCard>
         </ULink>
+
     </div>
 </template>
 
 <script setup>
+import BikeshopCard from '~/components/BikeshopCard.vue';
+
 const supabase = useSupabaseClient()
 const bikeshops = ref([]);
 
