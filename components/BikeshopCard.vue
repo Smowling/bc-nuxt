@@ -11,7 +11,9 @@
 
 
 <script setup>
-defineProps(["bikeshops"])
+import { Bikeshop } from '@/types/interfaces';
+
+defineProps<{ bikeshops: Bikeshop[] }>();
 
 
 </script>
