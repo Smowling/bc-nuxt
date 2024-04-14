@@ -11,7 +11,7 @@
 
 
 <script setup>
-import { Bikeshop } from '@/types/interfaces';
+// import { Bikeshop } from './src/types/interfaces';
 
 defineProps<{ bikeshops: Bikeshop[] }>();
 
